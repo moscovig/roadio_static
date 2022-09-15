@@ -1,0 +1,15 @@
+search_dir=/Users/giladmoscovitch/development/roadio-master/v2/app/static/js
+entry="menu_widget.html"
+aws s3 cp $search_dir/$entry s3://roadio-web-resources/js/$entry
+aws s3api put-object-acl --bucket roadio-web-resources --key js/$entry --acl public-read
+#aws s3 cp $search_dir/$entry s3://roadio-web-resources/js/$entry
+#aws s3api put-object-acl --bucket roadio-web-resources --key js/$entry --acl public-read
+exit 0
+
+for entry in "$search_dir"/*
+do
+  echo "$entry"
+  aws s3 cp $search_dir/$entry s3://roadio-web-resources/js/$entry
+  aws s3api put-object-acl --bucket roadio-web-resources --key js/$entry --acl public-read
+
+done

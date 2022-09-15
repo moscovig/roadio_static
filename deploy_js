@@ -1,5 +1,0 @@
-search_dir=/Users/giladmoscovitch/development/roadio-master/v2/app/static/js
-for entry in "$search_dir"/*
-do
-  echo "$entry"
-done
